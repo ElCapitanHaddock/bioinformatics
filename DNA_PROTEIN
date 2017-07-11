@@ -12,12 +12,15 @@ for line in lines:
 
 #str is now DNA
 
+'''
 #convert str to mRNA
 str = str.replace("A", "U")
 str = str.replace("T", "A")
 str = str.replace("C", "Z")
 str = str.replace("G", "C")
 str = str.replace("Z", "G") 
+'''
+str = str.replace("T", "U")
 
 table = [
 	{"n": "F", "c": ["UUU", "UUC"]},
@@ -53,5 +56,12 @@ for codon in codons:
 				res += row["n"]
 				break
 
-
+print "_____________________"
+print "R   E   S   U   L   T"
+print "`````````````````````"
 print res
+print "====================="
+print "GENETIC CONTENT"
+print len(res)
+print "---------------------"
+print
