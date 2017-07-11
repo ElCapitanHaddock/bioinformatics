@@ -1,2 +1,0 @@
-#Bioinformatics#
-##By Jeremy Yang##
