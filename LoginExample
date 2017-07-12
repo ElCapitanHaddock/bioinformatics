@@ -1,0 +1,68 @@
+#from names import hello
+#import random
+
+print ""
+print ".-~-~-~-~-~-~-~-~-~-~-~-~-~-~-."
+print "   -==:::L  O  G  I  N:::==-"
+
+print ""
+u = raw_input("Username: ")
+p = raw_input("Password: ")
+
+MATCH = False
+OK = False
+
+with open('/share/data/login.txt') as fp:
+    for line in fp:
+        auth = line.split()
+	if (u == auth[0]):
+		MATCH = True
+		if (p == auth[1]):
+			OK = True
+print ""
+print "`'~-.,.-~'`'~-.,.-~'`'~-.,.-~'`"
+
+if (MATCH):
+	if (OK):
+		print "          LOGIN SUCCESS"
+	else :
+		print "          INCORRECT PASSWORD"
+else:
+	print "          USER NOT FOUND"
+
+
+print "________________________________"
+print "|..........|___________________|"
+print "|..........|___________________|"
+print "|..........|___________________|"
+print "|..........|___________________|"
+print "|______________________________|"
+print "|______________________________|"
+print "|______________________________|"
+print ""
+print "___________________________________________________"
+print "    ___     ___     ___________      ______     ____________"
+print "   /| |    // |   /|   _______|     // ___ \    ___________/"
+print "   || |    || |   ||  |______/     // /___\\ \   _________/"
+print "   || |    || |   ||  |_______    // /_____\\ \  ______/"
+print "   || |    || |   ||_______   |   || ______  |  ___/"
+print "   || |    || |   |/_______|  |   || |____|| |  _/"
+print "   || |____|/ |     _______|  |   || |    || |"
+print "   ||_________|   /|__________|   ||_|    || |"
+print "   |/:::::::::/   |/__________/   |/_/    |/_/"
+print "---------------------------------------------------"
+print ""
+print ""
+print "       __  "     
+print "      /__\===o     " 
+print "      OOOO_               "
+print "     /     \:::::::O        "
+print "     |_________\\"
+print "     \O.O.O.O.O/"
+print "    _________________ _.._ "
+print "   /'                (_)(_)"
+print "  /   .-----////////--"
+print " /   /')"
+print "/___/"
+print ""
+print ""
