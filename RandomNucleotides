@@ -1,0 +1,13 @@
+
+from random import randint
+
+ref = ["A", "C", "T", "G"]
+
+res = ""
+i = 0
+while i < 300:
+	key = randint(0, 3)
+	res += ref[key]
+	i += 1
+
+print res
