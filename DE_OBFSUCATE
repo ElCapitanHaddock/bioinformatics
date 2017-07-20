@@ -1,0 +1,2 @@
+f = open("ENGLISH_RAND.txt")
+print f.readlines.join()

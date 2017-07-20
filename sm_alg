@@ -1,0 +1,89 @@
+import numpy
+
+match = 3
+mismatch = -3
+gap = -2
+
+def getScore(x, y):
+	#compare up, left, and up-left
+	sim = 0
+	if (s1[x-1] == s2[y-1]):
+		sim = match
+	else:
+		sim = mismatch
+
+	ul = res[x - 1][y - 1] + sim
+	u = res[x - 1][y] + gap
+	l = res[x][y - 1] + gap
+
+	return max(0, ul, u, l)
+
+def getBiggest():
+	m = {"x": 0, "y": 0}
+	for x in range(len(s1)):
+	        for y in range(len(s2)):
+        	        if (res[x][y] > res[m["x"]][m["y"]]):
+				m["x"] = x
+				m["y"] = y
+	return m
+
+def traceback():
+	start = getBiggest()
+	x = start["x"]
+	y = start["y"]
+	top = ""
+	mid = ""
+	bot = ""
+	while (x >= 0 and y >= 0):
+		bot += s2[x-1]
+		ul = res[x - 1][y - 1]
+        	u = res[x - 1][y]
+        	l = res[x][y - 1]
+		m = max(0, ul, u, l)
+		#get direction to go
+		if (ul == 0 or u == 0 or l == 0):
+			top += s1[y-1]
+			mid += "|"
+			break
+		if (m == ul): #go up left
+			#print str(m) + ", upleft"
+			top += s1[y-1]
+			mid += "|"
+			x -= 1
+			y -= 1
+		elif (m == u): #go up
+			#print str(m) + ", up"
+			top += "-"
+			mid += " "
+			x -= 1
+		elif (m == l): #go left
+			#print str(m) + ", left"
+			top += "-"
+			mid += " "
+			y -= 1
+	print ' '.join(top[::-1])
+	print ' '.join(mid[::-1])
+	print ' '.join(bot[::-1])
+
+'''
+s1 = list("ATACGATGA")
+s2 = list("AACGATCA")
+'''
+
+s1 = list("TGTTACGG")
+s2 = list("GGTTGACTA")
+
+
+#matrix
+res = numpy.zeros(( len(s1)+1, len(s2)+1 ))
+
+for x in range(len(s1)):
+	for y in range(len(s2)):
+		res[x+1][y+1] = getScore(x+1, y+1)
+
+res = numpy.swapaxes(res, 0, 1)
+
+numpy.set_printoptions(precision=3)
+print res
+
+traceback()

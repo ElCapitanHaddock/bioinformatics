@@ -1,0 +1,33 @@
+f = open("ENGLISH_RAND")
+PARTS = ''.join(f.readlines()).replace(',', '-').replace('\n', '').replace(" ", "").split("-")
+REPEATS = [] #already done
+RES = []
+
+i = 0
+while (i < len(PARTS)):
+	already = False
+	for x in range(len(RES)):
+		if (RES[x].find(PARTS[i]) != -1):
+			already = True
+			break	
+	if already == False and (PARTS[i] in REPEATS) == False:
+		REPEATS.append(PARTS[i])
+		s = raw_input(PARTS[i] + " + ")
+		if (s == "QUIT"):
+			break
+		if (s == "*"): #already done
+			RES.append(PARTS[i])
+			print "COMPLETED: " + PARTS[i]
+		elif (s != ""):
+			found = False
+			for p in range(len(PARTS)):
+				if (PARTS[p] == s):
+					found = True
+					print "COMPLETED: " + PARTS[i] + PARTS[p]
+					RES.append(PARTS[i] + PARTS.pop(p))
+					break
+			if (found == False):
+				print("NOT FOUND")
+	i += 1
+		
+print " ".join(RES)

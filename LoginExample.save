@@ -1,0 +1,18 @@
+
+print "_____________________"
+print "        L  O  G  I  N"
+print "`````````````````````"
+u = raw_input("Username: ")
+p = raw_input("Password: ")ATC
+
+with open('filename.txt') as fp:
+	for line in fp:
+		line = line.split()
+		if (u == line[0]):
+			if (p == line[1]):
+			MATCH = True
+			break
+
+if (MATCH) {
+}
+
